@@ -1,24 +1,24 @@
 @extends('template.layout')
 @section('title')
-    Barang
+    Siswa
 @endsection
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Barang</h1>
+            <h1>Siswa</h1>
         </div>
 
-       <!-- Data Barang -->
+       <!-- Data Siswa -->
         <div class="col-12-col-md-12-col-lg-12">
             <div class="card">
                 <!-- Judul -->
                 <div class="card-header">
                    <div class="col-12-col-md-10-col-lg-10">
-                    <h4>Data Barang</h4>
+                    <h4>Data Siswa</h4>
                    </div>
                    <div class="col-12-col-md-2-col-lg-2">
-                    <button type="button" onclick="addForm('{{route('barang.store')}}')"class="btn btn-success shadow-sm rounded-pill"><i class="fa fa-print"></i>Print</button>
-                    <button type="button" onclick="addForm('{{ route('barang.store') }}')" class="btn btn-primary shadow-sm rounded-pill"><i class="fa fa-plus"></i>Tambah</button>
+                    <button type="button" onclick="addForm('{{route('siswa.store')}}')"class="btn btn-success shadow-sm rounded-pill"><i class="fa fa-print"></i>Print</button>
+                    <button type="button" onclick="addForm('{{ route('siswa.store') }}')" class="btn btn-primary shadow-sm rounded-pill"><i class="fa fa-plus"></i>Tambah</button>
                    </div> 
                 </div>
 
@@ -40,7 +40,7 @@
         </div>
     </section>
     
-@include('barang.form')
+@include('siswa.form')
 
 @endsection
 
@@ -53,13 +53,13 @@
             proccesing: true,
             autowidth: false,
             ajax: {
-                url: '{{ route('barang.data') }}'
+                url: '{{ route('siswa.data') }}'
             },
             columns: [
                 {data: 'DT_RowIndex'},
                 {data: 'kode'},
                 {data: 'nama'},
-                {data: 'tempat_id'},
+                {data: 'jurusan_id'},
                 {data: 'aksi'}
             ]
         });
@@ -112,12 +112,12 @@
 
     // Menambahkan Blank Page Untuk PDF (Mendownload PDF Lewat[PDF Laravel])
     function pdf(url){
-        $('.form-barang').attr('action', url).attr('target', '_blank').submit();
+        $('.form-siswa').attr('action', url).attr('target', '_blank').submit();
     }
 
     function addForm(url){
             $('#modalForm').modal('show');
-            $('#modalForm .modal-title').text('Tambah Data Barang');
+            $('#modalForm .modal-title').text('Tambah Data Siswa');
             $('#modalForm form')[0].reset();
             $('#modalForm form').attr('action', url);
             $('#modalForm [name=_method]').val('post');
@@ -125,7 +125,7 @@
 
     function editData(url){
             $('#modalForm').modal('show');
-            $('#modalForm .modal-title').text('Edit Data Barang');
+            $('#modalForm .modal-title').text('Edit Data Siswa');
             $('#modalForm form')[0].reset();
             $('#modalForm form').attr('action', url);
             $('#modalForm [name=_method]').val('put');
@@ -133,9 +133,7 @@
                 .done((response) => {
                     $('#modalForm [name=kode]').val(response.kode);
                     $('#modalForm [name=nama]').val(response.nama);
-                    $('#modalForm [name=kategori_id]').val(response.kategori_id);
-                    $('#modalForm [name=tempat_id]').val(response.tempat_id);
-                    $('#modalForm [name=stok]').val(response.stok);
+                    $('#modalForm [name=jurusan_id]').val(response.jurusan_id);
                     $('#modalForm [name=keterangan]').val(response.keterangan);
                     // console.log(response.nama);
                 })

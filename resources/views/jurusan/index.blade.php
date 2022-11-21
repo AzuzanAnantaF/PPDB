@@ -1,26 +1,21 @@
 @extends('template.layout')
-
 @section('title')
-    Kategori
+    Jurusan
 @endsection
-
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Kategori</h1>
+            <h1>Jurusan</h1>
         </div>
-
         <div class="section-body">
             <div class="row">
-
-                {{-- Data Kategori --}}
+                {{-- Data Jurusan --}}
                 <div class="col-12 col-md-7 col-lg-7">
                     <div class="card">
                         {{-- Judul --}}
                         <div class="card-header">
-                            <h4>Data Kategori</h4>
+                            <h4>Data Jurusan</h4>
                         </div>
-
                         {{-- Tabel --}}
                         <div class="card-body">
                             <table class="table table-striped">
@@ -33,27 +28,25 @@
                                 </thead>
                             </table>
                         </div>
-
                     </div>
                 </div>
-
-                {{-- Tambah Kategori --}}
+                {{-- Tambah Jurusan --}}
                 <div class="col-12 col-md-5 col-lg-5">
                     <div class="card">
 
                         <div class="card-header">
-                            <h4>Tambah Kategori</h4>
+                            <h4>Tambah Jurusan</h4>
                         </div>
 
                         <div class="card-body" id="formTambah">
-                            <form action="{{route('kategori.store')}}" method="POST">
+                            <form action="{{route('jurusan.store')}}" method="POST">
                             @csrf
                             @method('POST')
                             <div class="form-group">
 
                                     {{-- Add Nama --}}
-                                    <label class="" for="nama">Nama Kategori</label>
-                                    <input type="text" name="nama" id="nama" value="{{ old('nama')}}" class="form-control @error('nama') is-invalid @enderror">
+                                    <label class="" for="nama">Nama Jurusan</label>
+                                    <input type="text" autocomplete="off" name="nama" id="nama" value="{{ old('nama')}}" class="form-control @error('nama') is-invalid @enderror">
                                     @error('nama')
                                         <div class="text-danger">
                                             {{ $message }}
@@ -78,14 +71,14 @@
 
 @push('script')
     <script>
-    // Data Tables //
+    // Data Tables
     let table;
     $(function() {
         table = $('.table').DataTable({
             proccesing: true,
             autowidth: false,
             ajax: {
-                url: '{{ route('kategori.data') }}'
+                url: '{{ route('jurusan.data') }}'
             },
             columns: [
                 {data: 'DT_RowIndex'},
@@ -94,6 +87,7 @@
             ]
         });
     })
+    
     $('#formTambah').on('submit', function(e){
             if(! e.preventDefault()){
                 $.post($('#formTambah form').attr('action'), $('#formTambah form').serialize())

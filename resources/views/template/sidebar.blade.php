@@ -1,7 +1,7 @@
 <div class="main-sidebar bg-dark sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html" class="text-white">Inventaris</a>
+            <a href="index.html" class="text-white">Ppdb</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{ route('dashboard') }}">INV</a>
@@ -16,24 +16,17 @@
             </li>
 
             <li class="menu-header">Master</li>
-            <li class="{{ request()->is('barang*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('barang.index') }}">
+            <li class="{{ request()->is('siswa*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('siswa.index') }}">
+                    <i class="fas fa-users"></i>
+                    <span>Siswa</span>
+                </a>
+            </li>
+
+            <li class="{{ request()->is('jurusan*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('jurusan.index') }}">
                     <i class="fas fa-boxes"></i>
-                    <span>Barang</span>
-                </a>
-            </li>
-
-            <li class="{{ request()->is('tempat*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('tempat.index') }}">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Tempat</span>
-                </a>
-            </li>
-
-            <li class="{{ request()->is('kategori*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('kategori.index') }}">
-                    <i class="fas fa-list"></i>
-                    <span>Kategori</span>
+                    <span>Jurusan</span>
                 </a>
             </li>
 

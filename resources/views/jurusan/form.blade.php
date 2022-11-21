@@ -15,7 +15,7 @@
 
                         {{-- Add Mapel --}}
                         <div class="my-1">
-                            <label class="mb-2" for="nama">Tempat</label>
+                            <label class="mb-2" for="nama">Jurusan</label>
                             <input type="text" autocomplete="off" name="nama" id="nama" value="{{ old('nama')}}" class="form-control @error('nama') is-invalid @enderror">
                             @error('nama')
                                 <div class="text-danger">
