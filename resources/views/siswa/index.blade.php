@@ -30,7 +30,7 @@
                                         <td scope="col" style="width: 50px;">No</td>
                                         <td scope="col">Kode</td>
                                         <td scope="col">Nama</td>
-                                        <td scope="col">Tempat</td>
+                                        <td scope="col">Jurusan</td>
                                         <td scope="col" style="width: 120px;">Aksi</td>
                                     </tr>
                                 </thead>

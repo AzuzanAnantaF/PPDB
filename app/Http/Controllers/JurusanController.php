@@ -1,8 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 use Validator;
 
 class JurusanController extends Controller
@@ -38,7 +39,6 @@ class JurusanController extends Controller
     ->make(true);
 }
 
-
     /**
      * Show the form for creating a new resource.
      *
@@ -48,6 +48,7 @@ class JurusanController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -78,30 +79,32 @@ class JurusanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jurusan  $jurusan
+     * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $jurusan = Jurusan::find($id);
+        $jurusan= Jurusan::find($id);
         return response()->json($jurusan);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jurusan  $jurusan
+     * @param  \App\Models\Jurusan  $kategori
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $jurusan = Jurusan::find($id);
-        return view('jurusan.index', compact ('jurusan'));
+        return view('jurusan.index', compact('jurusan'));
     }
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Jurusan  $jurusan
+     * @param  \App\Models\Jurusan  $kategori
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -112,10 +115,11 @@ class JurusanController extends Controller
 
         return response()->json('Data Berhasil Disimpan');
     }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jurusan  $jurusan
+     * @param  \App\Models\Jurusan  $kategori
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
